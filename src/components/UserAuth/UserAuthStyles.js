@@ -39,6 +39,7 @@ export const RightArea = styled.div`
 export const Button = styled.button`
   background-color: #fc5185;
   min-height: 38px;
+  width: 100%;
   color: white;
   font-size: 14px;
   font-weight: bold;
@@ -66,12 +67,33 @@ export const LoginArea = styled.div`
 `;
 export const Input = styled.input`
   display: block;
+  width: 100%;
+  min-height: 36px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #a9a3c1;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  &:focus {
+    border: 2px solid #fc5185;
+    outline: none;
+  }
+`;
+export const Select = styled.select`
+  display: block;
+  color: #a9a3c1;
+  width: 100%;
   min-height: 36px;
   margin-top: 8px;
   font-size: 14px;
   padding: 0 8px;
   border-radius: 4px;
   border: 1px solid transparent;
+  &:focus {
+    border: 2px solid #fc5185;
+    outline: none;
+  }
 `;
 export const ForgotArea = styled.div`
   display: flex;
@@ -80,10 +102,19 @@ export const ForgotArea = styled.div`
 export const ButtonSignUp = styled.div`
   display: block;
 `;
+export const ErrorMessage = styled.span`
+  color: #f00;
+  font-size: 14px;
+`;
 export const Para = styled.div`
-  display: block;
+  display: flex;
   font-size: 13px;
   color: #2d1d67;
+  .cursor-pointer {
+    color: #00008b;
+    padding-left: 3px;
+    text-decoration: underline;
+  }
 `;
 export const SignUpBtn = styled.div`
   display: flex;
@@ -91,12 +122,18 @@ export const SignUpBtn = styled.div`
   justify-content: space-between;
   width: 100%;
 `;
+export const LoginBtn = styled.div`
+  display: flex;
+  margin: 10px 0;
+  justify-content: end;
+  width: 100%;
+  color: blue;
+  font-weight: 600;
+`;
 export const Option = styled.option`
   display: block;
 `;
-export const Select = styled.select`
-  display: block;
-`;
+
 export const SignUpArea = styled.div`
   display: flex;
   width: 100%;
