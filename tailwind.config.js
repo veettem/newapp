@@ -4,5 +4,13 @@ module.exports = {
   theme: {
     extend: {},
   },
+  textColors: {
+    danger: "#e3342f",
+  },
+  colors: {
+    danger: {
+      DEFAULT: "#f00",
+    },
+  },
   plugins: [],
 };

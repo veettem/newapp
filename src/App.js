@@ -3,6 +3,7 @@ import Login from "./components/UserAuth/Login";
 import ErrorScreen from "./components/ErrorScreen";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
+import Product from "./pages/product";
 
 function App() {
   const LoginRouter = createBrowserRouter([
@@ -11,6 +12,11 @@ function App() {
       element: <Login />,
       errorElement: <ErrorScreen />,
     },
+    {
+      path: "/product",
+      element: <Product />,
+      errorElement: <ErrorScreen />,
+    }
   ]);
   useEffect(() => {
     console.log(process.env);
