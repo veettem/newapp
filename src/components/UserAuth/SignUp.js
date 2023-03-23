@@ -60,9 +60,8 @@ const SignUp = ({ loginHandler }) => {
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
       )
       .required("Required"),
-    profileImage: Yup.mixed().test("fileType", "Invalid file type", (value) =>
-      ["image/jpg", "image/jpeg", "image/png"].includes(value.type)
-    ),
+    profileImage: Yup.mixed().required("Please upload an image"),
+
     gender: Yup.string()
       .oneOf(["Male", "Female", "Other"])
       .required("Required"),
@@ -159,8 +158,10 @@ const SignUp = ({ loginHandler }) => {
           <Input
             type="file"
             name="profileImage"
+            id="profileImage"
             value={signUpFormik.values.profileImage}
             onChange={signUpFormik.handleChange}
+            onBlur={signUpFormik.handleBlur}
             placeholder="Upload Your Profile"
             invalid={signUpFormik.errors.profileImage}
           />

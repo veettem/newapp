@@ -19,6 +19,7 @@ import { logInService } from "../../services/userServices";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { saveTokens } from "../../services/auth";
 
 const Login = () => {
   const IconStyle = {
@@ -56,6 +57,7 @@ const Login = () => {
     onSubmit: async (values) => {
       await logInService(values)
         .then((user) => {
+          saveTokens(user);
           navigate("/product");
         })
         .catch((error) => {
@@ -63,6 +65,7 @@ const Login = () => {
         });
     },
   });
+
   return (
     <>
       <FormMain>
