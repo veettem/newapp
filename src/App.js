@@ -4,6 +4,7 @@ import ErrorScreen from "./components/ErrorScreen";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import Product from "./pages/product";
+import TestPage from "./pages/testPage";
 
 function App() {
   const LoginRouter = createBrowserRouter([
@@ -13,13 +14,27 @@ function App() {
       errorElement: <ErrorScreen />,
     },
     {
+      path: "/login",
+      element: <Login />,
+      errorElement: <ErrorScreen />,
+    },
+    {
       path: "/product",
       element: <Product />,
       errorElement: <ErrorScreen />,
-    }
+    },
+    {
+      path: "/test",
+      element: <TestPage />,
+      errorElement: <ErrorScreen />,
+    },
   ]);
+
   useEffect(() => {
-    console.log(process.env);
+    const path = window.location.pathname;
+    if (path === "/") {
+      window.location.href = `${window.location}login`;
+    }
   }, []);
   return (
     <div className="App">
