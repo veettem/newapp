@@ -16,7 +16,7 @@ import {
 } from "./UserAuthStyles";
 import SignUp from "./SignUp";
 import { logInService } from "../../services/userServices";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { saveTokens } from "../../services/auth";
@@ -29,7 +29,7 @@ const Login = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [loginAuth, setLoginAuth] = useState();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const signupHandler = () => {
     setShowSignup(true);
@@ -40,6 +40,8 @@ const Login = () => {
     setShowLogin(true);
     setShowSignup(false);
   };
+
+  const history = useHistory();
 
   const logInValidation = Yup.object().shape({
     email: Yup.string()
@@ -58,7 +60,9 @@ const Login = () => {
       await logInService(values)
         .then((user) => {
           saveTokens(user);
-          navigate("/product");
+        })
+        .then((res) => {
+          history.push("/products");
         })
         .catch((error) => {
           setLoginAuth(error);
