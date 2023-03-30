@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "http://localhost:9000/api";
+const baseURL = process.env.REACT_APP_API_KEY;
 
 export const signUpService = async (data) => {
   return axios.post(`${baseURL}/users/create-user`, data, {

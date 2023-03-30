@@ -7,7 +7,7 @@ export const saveTokens = (user) => {
     const options = {
       sameSite: "strict",
     };
-    cookies.set("authToken", session, options);
+    cookies.set("authToken", session, options, { expires: 7 });
   } else {
     return Promise.reject("Error in getting User Session");
   }
